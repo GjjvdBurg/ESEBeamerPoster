@@ -1,0 +1,174 @@
+% Copyright 2013 Gertjan van den Burg
+%
+% Unofficial Beamer poster style for the Erasmus School of Economics
+%
+% This file is released under the GPL v2 License (see LICENSE)
+
+\ProvidesPackage{beamerthemeRotterdamPoster}%
+[2013/08/07 v0.1 Erasmus School of Economics beamer poster style]
+
+\mode<presentation>
+
+\AtBeginDocument{%
+	\IfFileExists{frutiger.sty}{%
+		\RequirePackage{frutiger}
+	}{%
+		\PackageWarning{beamerthemeRotterdamPoster}{%
+			Font package frutiger.sty not found. See README\MessageBreak
+			for installation instructions.
+		}%
+	}%
+	\RequirePackage[letterspace=25]{microtype}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Colour definitions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\definecolor{ESEYellow}{RGB}{255,255,0}
+\definecolor{EURGreen}{RGB}{0,79,92}
+
+\setbeamercolor{lower separation line head}{fg=ESEYellow}
+\setbeamercolor{upper separation line foot}{fg=ESEYellow}
+\setbeamercolor{lower separation line foot}{fg=ESEYellow}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Parse options
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newif\if@emphasizegreen
+\newif\if@structgreen
+\newif\if@logogreen
+\DeclareOption{emphasizegreen}{\@emphasizegreentrue}
+\DeclareOption{structgreen}{\@structgreentrue}
+\DeclareOption{logogreen}{\@logogreentrue}
+\DeclareOption*{\PackageWarning{beamerthemeRotterdamPoster}{Unknown option `\CurrentOption'}}
+\ProcessOptions\relax
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Set \emph command to specified colour.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\if@emphasizegreen
+\newcommand{\myemph}[1]{{\color{EURGreen}\bfseries #1}}
+\else
+\newcommand{\myemph}[1]{{\bfseries #1}}
+\fi
+\let\emph\myemph
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Image declarations
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pgfdeclareimage[width=25px]{small-logo}{Eraskop06-zg.pdf}
+% Set titlepage logo depending on option
+\if@logogreen
+\pgfdeclareimage[width=15cm]{main-logo}{EURlogo_3165.pdf}
+\else
+\pgfdeclareimage[width=15cm]{main-logo}{EURlogo_zw.pdf}
+\fi
+\titlegraphic{\pgfuseimage{main-logo}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Inner Theme
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\useinnertheme{rectangles}
+\setbeamertemplate{navigation symbols}{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Headline definitions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{headline}{
+  \leavevmode
+  \begin{beamercolorbox}[wd=\paperwidth]{headline}
+    \begin{columns}[T]
+      \begin{column}{.02\paperwidth}
+      \end{column}
+      \begin{column}{.15\paperwidth}
+        \vskip8ex
+        \begin{center}
+          \begin{flushleft}
+	          {\large ERASMUS SCHOOL OF}\\
+	          \vskip13pt
+              \hskip-4pt{\huge\lsstyle\textbf{ECONOMICS}}
+          \end{flushleft}
+        \end{center}
+      \end{column}
+      \begin{column}{.66\paperwidth}
+        \vskip4ex
+        \begin{center}
+          \usebeamercolor{title in headline}{\color{fg}\textbf{\LARGE{\inserttitle}}\\[1ex]}
+          \usebeamercolor{author in headline}{\color{fg}\large{\insertauthor}\\[1ex]}
+          \usebeamercolor{institute in headline}{\color{fg}\large{\insertinstitute}\\[1ex]}
+        \end{center}
+      \end{column}
+      \begin{column}{.15\paperwidth}
+        \vskip8ex
+        \begin{center}
+          \begin{figure}
+            \if@logogreen%
+              \includegraphics[width=0.15\paperwidth]{EURlogo_3165.pdf}
+            \else%
+              \includegraphics[width=0.15\paperwidth, bb=0 0 191.486 45.854]{EURlogo_zw.pdf}
+            \fi
+          \end{figure}
+        \end{center}
+        \vskip2ex
+      \end{column}
+      \begin{column}{.02\paperwidth}
+      \end{column}
+    \end{columns}
+    \vskip2ex
+  \end{beamercolorbox}
+  
+  \begin{beamercolorbox}[wd=\paperwidth]{lower separation line head}
+    \rule{\paperwidth}{5pt}
+  \end{beamercolorbox}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Footline definitions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{footline}{
+  \begin{beamercolorbox}[wd=\paperwidth]{upper separation line foot}
+    \rule{\paperwidth}{5pt}
+  \end{beamercolorbox}
+  
+  \leavevmode%
+  \begin{beamercolorbox}[ht=6ex,leftskip=1em,rightskip=1em]{author in head/foot}%
+ % 	{\footnotesize Manuscript in preparation}
+    \hfill
+    {\normalsize\texttt{\insertshortauthor}}
+    \vskip1ex
+  \end{beamercolorbox}
+  \vskip0pt%
+  \begin{beamercolorbox}[wd=\paperwidth]{lower separation line foot}
+    \rule{\paperwidth}{5pt}
+  \end{beamercolorbox}
+}
+
+%%%%%%%%%
+% Colours
+%%%%%%%%%
+\if@structgreen
+\usecolortheme[named=EURGreen]{structure}
+\else
+\usecolortheme[named=black]{structure}
+\fi
+
+\setbeamercolor{block title}{bg=ESEYellow!80!white, fg=structure}
+\setbeamercolor{block body}{bg=ESEYellow!15!white}
+
+% Itemize options
+\setlength\labelsep{\dimexpr\labelsep + 1.5em\relax}  
+\setlength\leftmargini{\dimexpr\leftmargini + 3.5em\relax}
+\setlength\leftmarginii{\dimexpr\leftmarginii + 2.5em\relax}
+
+\setbeamertemplate{itemize items}[square]
+%\setbeamertemplate{itemize item}{\raisebox{0.0ex}{$\Box$}\hskip0.1em}
+\setbeamertemplate{itemize subitem}{\raisebox{0.0ex}{$-$}\hskip0.0em}
+
+
+
+%%%%%%%
+% Font
+%%%%%%%
+\setbeamerfont{itemize/enumerate body}{size=\normalsize}
+\setbeamerfont{itemize/enumerate subbody}{size=\normalsize}
+\setbeamerfont{itemize/enumerate subsubbody}{size=\normalsize}

@@ -1,0 +1,138 @@
+\documentclass{beamer}
+
+\mode<presentation>
+{
+	\usetheme{RotterdamPoster}
+}
+
+\usepackage{enumerate}
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+
+\usepackage[orientation=landscape,size=a0,scale=1.4,debug]{beamerposter}
+
+\title{\Huge Example Usage of the ESE Beamer Poster style}
+\author[burg@ese.eur.nl]{Gertjan van den Burg}
+\institute{Econometric Institute, Erasmus University Rotterdam, The Netherlands}
+\date{\today}
+
+\titlegraphic{
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.75]{eurlogo}
+\end{figure}
+}
+
+\begin{document}
+\begin{frame}
+\vspace{-1cm} % start the blocks a little higher than usual.
+% Start the column environment
+\begin{columns}[t]
+	% Begin with the first column (0.3\paperwidth is the width of this column)
+	\begin{column}{.3\paperwidth}
+		\begin{block}{Introduction}
+			\begin{itemize}
+				\item This is an example poster
+				\item The beamer poster style used is called \emph{RotterdamPoster}
+				\begin{itemize}
+					\item it can be found here:
+					\url{http://www.github.com/GjjvdBurg/ESEBeamerPoster}
+				\end{itemize}
+				\item The package \emph{beamerposter} is required
+				\begin{itemize}
+					\item it can be found here: \url{http://www-i6.informatik.rwth-aachen.de/~dreuw/latexbeamerposter.php}
+				\end{itemize}
+				\item For now the \emph{RotterdamPoster} package only supports landscape posters, because of the titlebar format.
+			\end{itemize}
+		\end{block}
+		% vfill after each block ensures spacing
+		\vfill
+		\begin{block}{Second block}
+			This is a second block
+			\begin{enumerate}
+				\item one
+				\item two with a formula
+					\[
+						E = \gamma m c^2
+					\]
+			\end{enumerate}
+			\emph{Example:} This is an example
+		\end{block}
+		\vfill
+		\begin{block}{Third block}
+			You can have columns inside blocks
+			\begin{columns}
+				\column{0.65\linewidth}
+				\begin{enumerate}
+					\item list item 1
+					\item list item 2
+					\item list item 3
+				\end{enumerate}
+				\column{0.35\linewidth}
+				\begin{itemize}
+					\item list item a
+					\item list item b
+					\item list item c
+				\end{itemize}
+			\end{columns}
+			% you can use these tricks if you run out of space
+			\vskip0.1\baselineskip
+			\begin{equation*}
+				f(x) = x^2
+			\end{equation*}
+		\end{block}
+		\vfill
+		\begin{block}{Usage}
+			This package has similar options as the ESEBeamer package (\url{http://www.github.com/GjjvdBurg/ESEBeamer}).
+			\begin{itemize}
+				\item emphasizegree: use {\color{EURGreen} EURGreen} and boldface to emphasize.
+				\item structgreen: use {\color{EURGreen} EURGreen} as structure color, changes the color of bullets etc.
+				\item logogreen: use the green logo in the top right.
+			\end{itemize}
+		\end{block}
+    \end{column}
+	
+	\begin{column}{.3\paperwidth}
+		\begin{block}{Block A}
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam id purus lobortis, feugiat lacus ut, varius lectus. Sed condimentum sodales libero quis feugiat. Nulla eget nulla nec lorem dapibus cursus. Vestibulum est nunc, molestie vitae tincidunt in, viverra non nunc. Curabitur lacinia libero mauris, at sollicitudin ligula pellentesque at. In hac habitasse platea dictumst. Phasellus nec justo nec arcu dapibus tristique. Maecenas augue ligula, blandit tristique est nec, tempor commodo libero. Proin vulputate blandit convallis. Pellentesque id erat vel ligula eleifend commodo non quis ante. Phasellus dictum elementum felis quis hendrerit. 
+		\end{block}
+		\vfill
+		\begin{block}{Block B}
+			 Integer pharetra in urna nec blandit. Integer fermentum mi tempor, iaculis arcu sit amet, molestie neque. Fusce ut hendrerit mauris. Praesent at tempus dolor. Donec vitae sapien dui. Nulla lobortis suscipit velit, et viverra mauris convallis non. Nulla ut eros non risus tempor fermentum. Maecenas euismod quam leo, quis aliquam nulla cursus sed. Aenean eget condimentum mauris, eu commodo nisi. Cras consequat id tellus auctor imperdiet. Nulla ac sem et enim consectetur rhoncus gravida eu ipsum.
+		\end{block}
+		\vfill
+		\begin{block}{Block C}
+			Vestibulum justo nisl, volutpat sit amet leo id, condimentum ultrices sapien. Aenean elit elit, elementum ut risus vel, ullamcorper volutpat turpis. Duis eget rutrum lectus. Curabitur at fringilla dui. Aliquam vehicula ligula lectus, nec mattis arcu placerat et. Donec a magna viverra, pellentesque augue molestie, tincidunt tellus. Donec vel risus vitae libero vehicula varius ac laoreet turpis. Sed tortor felis, tempus quis quam ac, sodales aliquet lacus. Sed tincidunt egestas sapien, et sollicitudin nibh vulputate ut. In enim nisi, mollis eleifend nisi eget, dignissim convallis quam. Sed vel placerat nisl. Suspendisse malesuada lobortis mi, eu rhoncus erat malesuada vel. Aliquam erat volutpat. Suspendisse et vestibulum nulla. Proin iaculis scelerisque leo sed pharetra. 
+		\end{block}
+		\vfill
+		\begin{block}{Block D}
+			Sed eget eros eu nibh vulputate consequat sed at est. Sed a dignissim sem. Praesent dignissim neque justo, quis fermentum neque interdum placerat. Aliquam posuere nunc metus, at eleifend nibh posuere venenatis. Cras consequat erat quam, quis consectetur dolor vulputate sed. Duis quis sapien nisl. Curabitur commodo dui id diam molestie, et aliquet ante lobortis. Pellentesque augue mi, egestas vel ultrices eget, vehicula hendrerit ante. Mauris ultricies mauris gravida volutpat suscipit. Vivamus et dolor ultricies, placerat metus vitae, commodo est. Donec id est nisi. 
+		\end{block}
+		\vfill
+		\begin{block}{Block E}
+			Nunc lectus elit, convallis pulvinar lorem vel, vehicula condimentum diam. Nam at lacus vel orci laoreet vehicula. Proin ligula eros, tincidunt nec leo nec, ullamcorper varius magna. 
+		\end{block}
+	\end{column}
+		
+	\begin{column}{.3\paperwidth}
+		\begin{block}{Performance Evaluation}
+			 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam id purus lobortis, feugiat lacus ut, varius lectus. Sed condimentum sodales libero quis feugiat. Nulla eget nulla nec lorem dapibus cursus. Vestibulum est nunc, molestie vitae tincidunt in, viverra non nunc. Curabitur lacinia libero mauris, at sollicitudin ligula pellentesque at. In hac habitasse platea dictumst. Phasellus nec justo nec arcu dapibus tristique. Maecenas augue ligula, blandit tristique est nec, tempor commodo libero. Proin vulputate blandit convallis. Pellentesque id erat vel ligula eleifend commodo non quis ante. Phasellus dictum elementum felis quis hendrerit.
+
+			Integer pharetra in urna nec blandit. Integer fermentum mi tempor, iaculis arcu sit amet, molestie neque. Fusce ut hendrerit mauris. Praesent at tempus dolor. Donec vitae sapien dui. Nulla lobortis suscipit velit, et viverra mauris convallis non. Nulla ut eros non risus tempor fermentum. Maecenas euismod quam leo, quis aliquam nulla cursus sed. Aenean eget condimentum mauris, eu commodo nisi. Cras consequat id tellus auctor imperdiet. Nulla ac sem et enim consectetur rhoncus gravida eu ipsum. 
+		\end{block}
+		\vfill
+		\vskip0.6\baselineskip % use this if you want to manually adjust block spacing
+		\begin{block}{Results}
+			 Vestibulum justo nisl, volutpat sit amet leo id, condimentum ultrices sapien. Aenean elit elit, elementum ut risus vel, ullamcorper volutpat turpis. Duis eget rutrum lectus. Curabitur at fringilla dui. Aliquam vehicula ligula lectus, nec mattis arcu placerat et. Donec a magna viverra, pellentesque augue molestie, tincidunt tellus. Donec vel risus vitae libero vehicula varius ac laoreet turpis. Sed tortor felis, tempus quis quam ac, sodales aliquet lacus. Sed tincidunt egestas sapien, et sollicitudin nibh vulputate ut. In enim nisi, mollis eleifend nisi eget, dignissim convallis quam. Sed vel placerat nisl. Suspendisse malesuada lobortis mi, eu rhoncus erat malesuada vel. Aliquam erat volutpat. Suspendisse et vestibulum nulla. Proin iaculis scelerisque leo sed pharetra.
+			
+			Sed eget eros eu nibh vulputate consequat sed at est. Sed a dignissim sem. Praesent dignissim neque justo, quis fermentum neque interdum placerat. Aliquam posuere nunc metus, at eleifend nibh posuere venenatis. Cras consequat erat quam, quis consectetur dolor vulputate sed. Duis quis sapien nisl. Curabitur commodo dui id diam molestie, et aliquet ante lobortis. Pellentesque augue mi, egestas vel ultrices eget, vehicula hendrerit ante. Mauris ultricies mauris gravida volutpat suscipit. Vivamus et dolor ultricies, placerat metus vitae, commodo est. Donec id est nisi. 
+		\end{block}
+		\vfill
+		\vskip0.6\baselineskip
+		\begin{block}{Conclusions \& Future Work}
+			Nunc lectus elit, convallis pulvinar lorem vel, vehicula condimentum diam. Nam at lacus vel orci laoreet vehicula. Proin ligula eros, tincidunt nec leo nec, ullamcorper varius magna. Donec nibh justo, viverra a erat eget, semper rutrum enim. Aliquam in leo congue, condimentum erat gravida, tristique nisl. Nullam metus purus, vulputate sed sem sed, ultrices commodo est. 
+		\end{block}
+	\end{column}
+\end{columns}
+\end{frame}
+\end{document}
