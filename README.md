@@ -1,5 +1,5 @@
-ESEBeamer
-=========
+ESEBeamerPoster
+===============
 
 Unofficial Beamer Poster style for the Erasmus School of Economics.
 
